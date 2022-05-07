@@ -4,35 +4,35 @@ import { useForm } from "react-hook-form";
 import { FormControl, Input, InputLabel, Button, TextField } from '@mui/material/';
 import UpdateIcon from '@mui/icons-material/Update';
 import axios from 'axios';
+import { useParams } from 'react-router-dom'
 
-// interface Inputs {
-//     firstName: string,
-//     lastName: string,
-//     email: string,
-//     phone: string,
-// }
-
-const Update = (): ReactElement => {
+const Update = ({  }) => {
+  const params = useParams();
+  const [dataUser, setDataUser] = useState<any>();
+  
   const { handleSubmit, formState: { errors } } = useForm();
-  const [id, setID] = useState<string | null>('');
   const [firstName, setFirstName] = useState<string | null>('');
   const [lastName, setLastName] = useState<string | null>('');
   const [email, setEmail] = useState<string | null>('');
   const [phone, setPhone] = useState<string | null>('');
 
   useEffect(() => {
-    setID(localStorage.getItem('ID'))
-    setFirstName(localStorage.getItem('First Name'));
-    setLastName(localStorage.getItem('Last Name'));
-    setEmail(localStorage.getItem('Email'));
-    setPhone(localStorage.getItem('Phone'));
-
+    const setDefaultData = async () =>{
+      await axios.get(`https://bkbnchallenge.herokuapp.com/contacts/${params.id}`)
+      .then((response: any) => {
+        setFirstName(response.data.firstName)
+        setLastName(response.data.lastName)
+        setEmail(response.data.email)
+        setPhone(response.data.phone)
+        console.log(response);
+     })
+    }
+    setDefaultData();
   }, []);
 
 
   const updateAPIData = async () => {
-    await axios.put(`https://bkbnchallenge.herokuapp.com/contacts/${id}`, { firstName, lastName, email, phone })
-
+    await axios.put(`https://bkbnchallenge.herokuapp.com/contacts/${params.id}`, { firstName, lastName, email, phone })
     console.log('aqui hshshshs', firstName);
   }
 

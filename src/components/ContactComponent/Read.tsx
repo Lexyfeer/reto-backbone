@@ -12,30 +12,19 @@ import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import UpdateIcon from '@mui/icons-material/Update';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useNavigate } from 'react-router-dom'
 
 const Read = () => {
+  const history = useNavigate();
+  
   const [APIData, setAPIData] = useState([]);
-  let results: any = APIData;
+
   useEffect(() => {
     axios.get('https://bkbnchallenge.herokuapp.com/contacts?perPage=100')
       .then((response: any) => {
         setAPIData(response.data.results);
-        console.log(response.data.results);
       })
   }, [])
-
-  const rows = results;
-
-  const setData = (data: any) => {
-    let { id, firstName, lastName, email, phone } = data;
-    localStorage.setItem('ID', id);
-    localStorage.setItem('First Name', firstName);
-    localStorage.setItem('Last Name', lastName);
-    localStorage.setItem('Email', email);
-    localStorage.setItem('Phone', phone)
-
-    console.log(data);
-  }
 
   const onDelete = (id: string) => {
     axios.delete(`https://bkbnchallenge.herokuapp.com/contacts/${id}`)
@@ -46,11 +35,11 @@ const Read = () => {
     <>
       <h1>Lista de contactos</h1>
       <Link to='/create'>
-      <Tooltip title="Add New Contact">
-        <IconButton color="error" aria-label="create">
-          <DeleteIcon />
-        </IconButton>
-      </Tooltip>
+        <Tooltip title="Add New Contact">
+          <IconButton color="error" aria-label="create">
+            <DeleteIcon />
+          </IconButton>
+        </Tooltip>
       </Link>
 
       <TableContainer component={Paper}>
@@ -66,7 +55,7 @@ const Read = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row: any) => (
+            {APIData.map((row: any) => (
               <TableRow
                 key={row.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -78,13 +67,10 @@ const Read = () => {
                 <TableCell align="right">{row.email}</TableCell>
                 <TableCell align="right">{row.phone}</TableCell>
                 <TableCell>
-                  <Link to='/update'>
-                    <Tooltip title="Update contact">
-                      <IconButton color="primary" aria-label="Update" onClick={() => setData(row)}>
-                        <UpdateIcon />
-                      </IconButton>
-                    </Tooltip>
-                  </Link>
+                  <Tooltip title="Update contact">
+                    <IconButton color="primary" aria-label="Update" onClick={() => history(`/update/${row.id}`)}> <UpdateIcon />
+                    </IconButton>
+                  </Tooltip>
                 </TableCell>
                 <TableCell>
                   <Tooltip title="Delete contact">
