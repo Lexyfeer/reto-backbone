@@ -40,13 +40,13 @@ const Contact = ({ }) => {
     if (idContact) {
       await axios.put('https://bkbnchallenge.herokuapp.com/contacts/' + idContact, { firstName, lastName, email, phone })
         .then(() => {
-          history('/')
+          history('/reto-backbone/')
         })
     }
     else {
       await axios.post('https://bkbnchallenge.herokuapp.com/contacts', { firstName, lastName, email, phone })
         .then(() => {
-          history('/')
+          history('/reto-backbone/')
         })
         .catch((error) => {
           console.log(error)
