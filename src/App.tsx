@@ -14,7 +14,7 @@ function App() {
       <h1>CRUD CONTACTOS React, Hooks y Axios</h1>
       <h3>Reto BACKBONE</h3>
 
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <AllRoutes />
       </Router>
 
