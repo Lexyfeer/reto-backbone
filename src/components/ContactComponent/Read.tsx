@@ -29,12 +29,7 @@ const Read = () => {
   useEffect(() => {
     const getAllContacts = async () => {
       try {
-        const options = { headers: 
-          { 
-            "Permissions-Policy": "interest-cohort=()"
-          }
-        }
-        const { data } = await axios.get('https://bkbnchallenge.herokuapp.com/contacts?perPage=100', options);
+        const { data } = await axios.get('https://bkbnchallenge.herokuapp.com/contacts?perPage=100');
         // https://bkbnchallenge.herokuapp.com/contacts?perPage=100
         setAPIData(data?.results);
       } catch (e) {
