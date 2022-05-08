@@ -10,7 +10,6 @@ import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
-import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
@@ -75,11 +74,9 @@ const Read = () => {
     <>
       <h1>Lista de contactos</h1>
       <div className='addBtn'>
-        <Link href={`/${ROUTES_NAME.CONTACTS}/${ROUTES_NAME.CREATE}`} underline='none'>
-          <Button variant="contained" endIcon={<AddIcon fontSize='large' />}>
-            Add
-          </Button>
-        </Link>
+        <Button variant="contained" endIcon={<AddIcon fontSize='large' />} onClick={() => history(`/reto-backbone/${ROUTES_NAME.CONTACTS}/${ROUTES_NAME.CREATE}`)}>
+          Add
+        </Button>
       </div>
 
       <Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -108,7 +105,7 @@ const Read = () => {
                       <TableCell>{row.phone}</TableCell>
                       <TableCell>
                         <Tooltip title="Update contact">
-                          <IconButton color="primary" aria-label="Update" onClick={() => history(`/${ROUTES_NAME.CONTACTS}/${row.id}/${ROUTES_NAME.UPDATE}`)}> <EditIcon />
+                          <IconButton color="primary" aria-label="Update" onClick={() => history(`/reto-backbone/${ROUTES_NAME.CONTACTS}/${row.id}/${ROUTES_NAME.UPDATE}`)}> <EditIcon />
                           </IconButton>
                         </Tooltip>
                       </TableCell>
