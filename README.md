@@ -19,4 +19,4 @@ Una vez que ya tuve la funcionalidad completa de los componentes, es decir que r
     * Cree un archivo para hacer constantes las rutas que estaba utilizando de forma hardcodeada, por si se tuviera que hacer cambio en las rutas, fuera mas fácil de hacerlo desde las constantes globales del proyecto. En vez de modificar muchos archivos solo se modifica uno solo.
 
 Para finalizar el proyecto lo que hice fue deployarlo a githubPages. Para ver el proyecto haz clic aquí:
-s[CRUD](https://reactjs.org/).
+s[CRUD](https://lexyfeer.github.io/reto-backbone/).
