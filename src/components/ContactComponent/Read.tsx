@@ -74,7 +74,7 @@ const Read = () => {
     <>
       <h1>Lista de contactos</h1>
       <div className='addBtn'>
-        <Link href='/create' underline='none'>
+        <Link href='/contact' underline='none'>
           <Button variant="contained" endIcon={<AddIcon fontSize='large' />}>
             Add
           </Button>
@@ -107,7 +107,7 @@ const Read = () => {
                       <TableCell>{row.phone}</TableCell>
                       <TableCell>
                         <Tooltip title="Update contact">
-                          <IconButton color="primary" aria-label="Update" onClick={() => history(`/update/${row.id}`)}> <EditIcon />
+                          <IconButton color="primary" aria-label="Update" onClick={() => history(`/contact/${row.id}`)}> <EditIcon />
                           </IconButton>
                         </Tooltip>
                       </TableCell>

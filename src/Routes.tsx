@@ -1,15 +1,16 @@
 import { Routes, Route } from "react-router-dom";
 
-import Update from './components/ContactComponent/Update';
-import Create from './components/ContactComponent/Create';
+import Contact from './components/ContactComponent/Contact';
 import Read from './components/ContactComponent/Read';
 
 const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Read />} />
-      <Route path="/create" element={<Create />} />
-      <Route path="/update/:id" element={<Update />} />
+      <Route path="/contact" element={<Contact />} >
+        <Route path="/contact/:id" element={<Contact />} />
+      </Route>
+
     </Routes>
   )
 }
