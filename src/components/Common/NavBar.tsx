@@ -17,14 +17,6 @@ interface Pages {
   path: string,
 }
 
-const pages: Array<Pages> = [
-  {
-    key: 'Read-route',
-    title: 'Contacts List',
-    path: '/read'
-  }
-]
-
 const NavBar = () => {
   const [ setAnchorElNav] = React.useState<null | HTMLElement>(null);
 
@@ -32,7 +24,7 @@ const NavBar = () => {
     <AppBar position="static" color="secondary">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Link underline="none" href="/">
+          <Link underline="none" href="/reto-backbone">
             <Avatar
               alt="Remy Sharp"
               src={logo}
