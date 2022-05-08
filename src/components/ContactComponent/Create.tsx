@@ -6,11 +6,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
-
-// interface Inputs {
-//     firstName: string;
-// }
-
 const Create = () => {
   let history = useNavigate();
 
@@ -19,16 +14,12 @@ const Create = () => {
   const [lastName, setLastName] = useState<string>();
   const [email, setEmail] = useState<string>();
   const [phone, setPhone] = useState<string>();
-  // const [dataContac, setDataContact] = useState([]);
 
   const onSubmit = async (data: any) => {
     await axios.post('https://bkbnchallenge.herokuapp.com/contacts', { firstName, lastName, email, phone })
       .then(() => {
         history('/')
       })
-
-
-    console.log('aqui dataContact', data);
   }
 
   return (
