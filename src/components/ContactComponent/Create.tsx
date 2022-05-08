@@ -1,16 +1,19 @@
-import React, { ReactElement } from "react";
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { FormControl, Input, InputLabel, Button } from '@mui/material/';
 import AddIcon from '@mui/icons-material/Add';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 
 // interface Inputs {
 //     firstName: string;
 // }
 
-const Create = (): ReactElement => {
+const Create = () => {
+  let history = useNavigate();
+
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [firstName, setFirstName] = useState<string>();
   const [lastName, setLastName] = useState<string>();
@@ -19,7 +22,11 @@ const Create = (): ReactElement => {
   // const [dataContac, setDataContact] = useState([]);
 
   const onSubmit = async (data: any) => {
-    await axios.post('https://bkbnchallenge.herokuapp.com/contacts', { firstName, lastName, email, phone });
+    await axios.post('https://bkbnchallenge.herokuapp.com/contacts', { firstName, lastName, email, phone })
+      .then(() => {
+        history('/')
+      })
+
 
     console.log('aqui dataContact', data);
   }
