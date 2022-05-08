@@ -29,8 +29,16 @@ const Read = () => {
   useEffect(() => {
     const getAllContacts = async () => {
       try {
-        // const options = { headers: { "Permissions-Policy": "interest-cohort=()"} }
-        const { data } = await axios.get('https://bkbnchallenge.herokuapp.com/contacts?perPage=100');
+        const options = { headers: 
+          { 
+            "Access-Control-Allow-Origin" : "*",
+            "Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",        
+            'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+            // "Permissions-Policy": "interest-cohort=()"
+          }
+        }
+        const { data } = await axios.get('https://bkbnchallenge.herokuapp.com/contacts?perPage=100', );
         // https://bkbnchallenge.herokuapp.com/contacts?perPage=100
         setAPIData(data?.results);
       } catch (e) {

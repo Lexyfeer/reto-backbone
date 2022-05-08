@@ -7,7 +7,7 @@ import Read from './components/ContactComponent/Read';
 const AllRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Read />} />
+      <Route path="/reto-backbone/" element={<Read />} />
       <Route path={`/${ROUTES_NAME.CONTACTS}/${ROUTES_NAME.CREATE}`} element={<Contact />} />
       <Route path={`/${ROUTES_NAME.CONTACTS}/:id/${ROUTES_NAME.UPDATE}`} element={<Contact />} />
     </Routes>
