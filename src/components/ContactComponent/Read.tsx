@@ -16,6 +16,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useNavigate } from 'react-router-dom';
+import { ROUTES_NAME } from '../../global/constant';
 
 const Read = () => {
   const history = useNavigate();
@@ -74,7 +75,7 @@ const Read = () => {
     <>
       <h1>Lista de contactos</h1>
       <div className='addBtn'>
-        <Link href='/contact' underline='none'>
+        <Link href={`/${ROUTES_NAME.CONTACTS}/${ROUTES_NAME.CREATE}`} underline='none'>
           <Button variant="contained" endIcon={<AddIcon fontSize='large' />}>
             Add
           </Button>
@@ -107,7 +108,7 @@ const Read = () => {
                       <TableCell>{row.phone}</TableCell>
                       <TableCell>
                         <Tooltip title="Update contact">
-                          <IconButton color="primary" aria-label="Update" onClick={() => history(`/contact/${row.id}`)}> <EditIcon />
+                          <IconButton color="primary" aria-label="Update" onClick={() => history(`/${ROUTES_NAME.CONTACTS}/${row.id}/${ROUTES_NAME.UPDATE}`)}> <EditIcon />
                           </IconButton>
                         </Tooltip>
                       </TableCell>

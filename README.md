@@ -1,46 +1,22 @@
-# Getting Started with Create React App
+# CRUD para el endpoint de contactos `contacts`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Se tomó este reto técnico desde dos perspectivas:
+    1.  Reto tecnico: La arquitectura técnica es utilizar typescript, Material UI, react hook forms.
+    2.  Entendimiento de requerimientos: Entendimiento del negocio que es la administración de contactos por medio de una API Rest. 
 
-## Available Scripts
+Se instalaron las dependencias y paquetería necesaria comenzar con el desarrollo del CRUD (`Create, Read, Update and Delete`). Posteriorenmetne Se instalo la paquetería para el manejo de estilos requeridos: Material UI y react hook forms y axios para las llamadas a los endpoints de backend. 
+Con esto se tenia completo la configuración y base inicial del proyecto, conforme a la arquitectura solicitada 
+E inicie con la investigación de la integración y funcionamiento de Material UI, React hook forms; y una vez entendí en esencia para que sirven comencé con el desarrollo:
 
-In the project directory, you can run:
+    1. Empece por el formulario para registrar contactos nuevos que integre con material UI y las propiedades baiscas de react-hook-form.
+    2. Lo siguiente que hice fue crear del componente para visualizar toda la lista de contactos.
+    3. Y por ultimo cree un componente para actualizar contactos.
+    4. La funcionalidad del delete dentro del componente: `Contat¡.tsx` la puedo hacer en el mismo componente; pero ya no lo pude implementar por tiempos
 
-### `npm start`
+Una vez que ya tuve la funcionalidad completa de los componentes, es decir que realizaba el CRUD completo, realice una refactorización de código con mejoras en los componentes por ejemplo:
+    
+    * En lugar de utilizar dos formularios, uno para agregar el contacto y otro para actualizar; decidí hacer un solo componente que realice el post y put porque los campos y validaciones son exactamente las mismas para ambos casos. No tenia sentido tener componentes separados. Y con esto me ayudo a codificar una sola vez las validaciones del mail y del teléfono.
+    * Cree un archivo para hacer constantes las rutas que estaba utilizando de forma hardcodeada, por si se tuviera que hacer cambio en las rutas, fuera mas fácil de hacerlo desde las constantes globales del proyecto. En vez de modificar muchos archivos solo se modifica uno solo.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Para finalizar el proyecto lo que hice fue deployarlo a githubPages. Para ver el proyecto haz clic aquí:
+s[CRUD](https://reactjs.org/).
