@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/reto-backbone/static/css/main.247f8090.css",
-    "main.js": "/reto-backbone/static/js/main.200a9915.js",
-    "static/media/logo.svg": "/reto-backbone/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/reto-backbone/index.html",
-    "main.247f8090.css.map": "/reto-backbone/static/css/main.247f8090.css.map",
-    "main.200a9915.js.map": "/reto-backbone/static/js/main.200a9915.js.map"
+    "main.css": "/static/css/main.247f8090.css",
+    "main.js": "/static/js/main.eb92d90a.js",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.247f8090.css.map": "/static/css/main.247f8090.css.map",
+    "main.eb92d90a.js.map": "/static/js/main.eb92d90a.js.map"
   },
   "entrypoints": [
     "static/css/main.247f8090.css",
-    "static/js/main.200a9915.js"
+    "static/js/main.eb92d90a.js"
   ]
 }
